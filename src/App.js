@@ -1,9 +1,10 @@
 import './App.css';
-import MyComponent from "./MyComponent";
+import Say from "./component/Say";
+// import MyComponent from "./MyComponent";
+// import Counter from "./component/Counter";
 
 function App() {
-    // name 프로퍼티에 넣어줄 값을 넣어준다!
-    return <MyComponent name={"Sunki"}/>
+    return <Say />
 }
 
 export default App;
