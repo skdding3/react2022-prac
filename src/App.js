@@ -1,13 +1,9 @@
 import './App.css';
+import MyComponent from "./MyComponent";
 
 function App() {
-    const name = '리액'
-  return (
-      // ? 연산자 연습 (like if)
-    <div>
-        {name === '리액트' ? <h1>리액트 입니다.</h1> : <h1>리액트 아닙니다.</h1>}
-    </div>
-  );
+    // name 프로퍼티에 넣어줄 값을 넣어준다.
+    return <MyComponent name={"Sunki"}/>
 }
 
 export default App;
