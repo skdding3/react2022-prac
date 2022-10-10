@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 // 함수형 컴포넌트
 const EventPractice = () => {
-    const [username, setUsername] = useState('나야!');
+    const [username, setUsername] = useState('');
     const [message, setMessage] = useState('')
     const onChangeUsername = e => setUsername(e.target.value)
     const onChangeMessage = e => setMessage(e.target.value)
@@ -25,6 +25,13 @@ const EventPractice = () => {
                 type={"text"}
                 name={username}
                 placeholder={"사용자명"}
+                value={username}
+                onChange={onChangeUsername}
+            />
+            <input
+                type={"text"}
+                name={username}
+                placeholder={"아무거나 입력해보세요"}
                 value={message}
                 onChange={onChangeMessage}
                 onKeyPress={onKeyPress}
