@@ -9,6 +9,7 @@ import "./App.css";
 // import MyComponent from "./MyComponent";
 // import IterationSample from "./component/iterationSample";
 import LifeCycleSample from "./component/LifeCycleSample";
+import ErrorBoundary from "./component/ErrorBoundary";
 
 function getRandomColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -29,7 +30,10 @@ class App extends Component {
     return (
       <div>
         <button onClick={this.handleClick}>랜덤 색상</button>
-        <LifeCycleSample color={this.state.color} />
+        {/* 에러 바운더리로 감싸준다. */}
+        <ErrorBoundary>
+          <LifeCycleSample color={this.state.color} />
+        </ErrorBoundary>
       </div>
     );
   }
