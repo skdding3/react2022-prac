@@ -1,10 +1,16 @@
-import React, {useReducer} from "react";
+import { useReducer } from "react";
 
-function reducer (state, action) {
-    switch (action.type) {
-        case "INCREASE"
-    }
+function reducer(state, action) {
+  return {
+    ...state,
+    [action.name]: action.value,
+  };
 }
 
-
-export default Hooks;
+export default function Hooks(initialForm) {
+  const [state, dispatch] = useReducer(reducer, initialForm);
+  const onChange = (e) => {
+    dispatch(e.target);
+  };
+  return [state, onChange];
+}
