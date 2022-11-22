@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "./App.css";
-import ErrorBoundary from "./component/ErrorBoundary";
-import Info from "./component/Info";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from "./routes/Detail";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        {/* 에러 바운더리로 감싸준다. */}
-        <ErrorBoundary>
-          <Info />
-        </ErrorBoundary>
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" exact element={<Home />}></Route>
+          <Route path="/:id" element={<Detail />}></Route>
+        </Routes>
+      </BrowserRouter>
     );
   }
 }

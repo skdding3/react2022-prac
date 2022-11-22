@@ -1,31 +1,20 @@
-import { legacy_createStore as createStore } from "redux"; // as 붙여서 취소선 삭제
 import { v4 as uuidv4 } from "uuid";
-import { createAction } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const addToDo = createAction("ADD_TODO");
-const deleteToDo = createAction("DELETE_TODO");
+const toDos = createSlice({
+  name: "toDosReducer",
+  initialState: [],
+  reducers: {
+    // Action creator
+    add: (state, action) => {
+      state.push({ text: action.payload, id: uuidv4() });
+    },
+    // Action creator
+    remove: (state, action) =>
+      state.filter((toDo) => toDo.id !== action.payload),
+  },
+});
 
-const reducer = (toDos = [], action) => {
-  switch (action.type) {
-    case addToDo.type:
-      // createAction으로 만든 action은 default로 type과 payload를 가진다.
-      // payload에 데이터를 담는다.
-      return [{ text: action.payload, id: uuidv4() }, ...toDos];
+export const { add, remove } = toDos;
 
-    case deleteToDo.type:
-      // createAction으로 만든 action은 default로 type과 payload를 가진다.
-      // payload에 데이터를 담는다.
-      return toDos.filter((toDo) => toDo.id !== action.payload);
-
-    default:
-      return toDos;
-  }
-};
-const toDosStore = createStore(reducer);
-
-export const actionCreators = {
-  addToDo,
-  deleteToDo,
-};
-
-export default toDosStore;
+export default configureStore({ reducer: toDos.reducer });
