@@ -1,28 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState } from "react";
+
+const hardCalculate = (number) => {
+  console.log("어려운 계산!");
+  for (let i = 0; i < 99999999; i++) {} // 생각하는 시간
+  return number + 10000;
+};
+
+const easyCalculate = (number) => {
+  console.log("쉬운 계산!");
+  return number + 1;
+};
 
 function App() {
-  // State
-  const [count, setCount] = useState(1);
-  const [name, setName] = useState("");
+  const [hardNumber, setHardNumber] = useState(1);
+  const [easyNumber, setEasyNumber] = useState(1);
 
-  const handleCountUpdate = () => {
-    setCount(count + 1);
-  };
-
-  const handleInputChange = (e) => {
-    setName(e.target.value);
-  };
-  // Effect => 렌더링 될때 마다 실행됨 => 마운트 + [ item ] 이 변경될떄만 적용
-  useEffect(() => {
-    console.log("count 변화");
-  }, [count]);
+  // const hardSum = hardCalculate(hardNumber);
+  const hardSum = useMemo(() => {
+    return hardCalculate(hardNumber);
+  }, [hardNumber]);
+  const easySum = easyCalculate(easyNumber);
 
   return (
     <div>
-      <button onClick={handleCountUpdate}>Update</button>
-      <span>count: {count}</span>
-      <input type="text" value={name} onChange={handleInputChange} />
-      <span>name: {name}</span>
+      <h3>어려운 계산기</h3>
+      <input
+        type="number"
+        value={hardNumber}
+        onChange={(e) => setHardNumber(parseInt(e.target.value))}
+      />
+      <span> + 10000 = {hardSum}</span>
+
+      <h3>쉬운 계산기</h3>
+      <input
+        type="number"
+        value={easyNumber}
+        onChange={(e) => setEasyNumber(parseInt(e.target.value))}
+      />
+      <span> + 1 = {easySum}</span>
     </div>
   );
 }
