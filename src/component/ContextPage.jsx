@@ -3,12 +3,12 @@ import ContextHeader from "./ContextHeader";
 import ContextFooter from "./ContextFooter";
 import ContextContent from "./ContextContent";
 
-function ContextPage({ isDark, setIsDark }) {
+function ContextPage() {
   return (
     <div className="page">
-      <ContextHeader isDark={isDark} />
-      <ContextContent isDark={isDark} />
-      <ContextFooter isDark={isDark} setIsDark={setIsDark} />
+      <ContextHeader />
+      <ContextContent />
+      <ContextFooter />
     </div>
   );
 }
