@@ -1,8 +1,9 @@
 import React from "react";
-import UseMemoPrac from "./component/useMemoPrac";
+import "./index.css";
+import UseContextPrac from "./component/UseContextPrac";
 
 function App() {
-  return <UseMemoPrac />;
+  return <UseContextPrac />;
 }
 
 export default App;
