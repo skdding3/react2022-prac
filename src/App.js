@@ -1,9 +1,8 @@
 import React from "react";
-import "./index.css";
-import UseContextPrac from "./component/UseContextPrac";
+import UseCallbackPrac from "./component/UseCallbackPrac";
 
 function App() {
-  return <UseContextPrac />;
+  return <UseCallbackPrac />;
 }
 
 export default App;
