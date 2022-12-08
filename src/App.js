@@ -1,8 +1,8 @@
 import React from "react";
-import UseCallbackPrac from "./component/UseCallbackPrac";
+import LoginPrac from "./component/LoginPrac";
 
 function App() {
-  return <UseCallbackPrac />;
+  return <LoginPrac />;
 }
 
 export default App;

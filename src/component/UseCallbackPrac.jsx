@@ -3,13 +3,13 @@ import { useCallback, useEffect, useState } from "react";
 function useCallbackPrac() {
   // State
   const [number, setNumber] = useState(0);
-  const [toggle, setToggle] = useState(true);
+  // const [toggle, setToggle] = useState(true);
 
   // useCallback
-  const someFunction = useCallback(() => {
+  const someFunction = () => {
     console.log(`someFunc: Number: ${number}`);
     return;
-  }, [number]);
+  };
 
   // Effect
   // Some Function에 대한 변화를 감지한다.
@@ -24,7 +24,7 @@ function useCallbackPrac() {
         value={number}
         onChange={(e) => setNumber(e.target.value)}
       />
-      <button onClick={() => setToggle(!toggle)}>{toggle.toString()}</button>
+      {/*<button onClick={() => setToggle(!toggle)}>{toggle.toString()}</button>*/}
       <br />
       <button onClick={someFunction}>Call someFunc</button>
     </div>
