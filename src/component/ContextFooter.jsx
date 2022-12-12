@@ -7,7 +7,7 @@ const ContextFooter = () => {
   const toggleTheme = () => {
     setIsDark(!isDark);
   };
-
+  //
   return (
     <footer
       className="footer"
